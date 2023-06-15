@@ -45,7 +45,7 @@ jobs:
       - name: docker-push
         run: docker push $registryName/$repositoryName:$tag
 
-  deploy:
+  deploy_dev:
     needs: [container]
     runs-on: ubuntu-latest
     steps:              
@@ -55,4 +55,32 @@ jobs:
       - uses: azure/webapps-deploy@v2
         with:
           app-name: 'wth12devops-dev'
+          images: 'wth12devopsreg.azurecr.io/wth/dotnetcoreapp:${{github.run_number}}'
+
+  deploy_test:
+    needs: [deploy_dev]
+    runs-on: ubuntu-latest
+    environment:
+      name: test
+    steps:              
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.SECRET1 }}
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'wth12devops-test'
+          images: 'wth12devopsreg.azurecr.io/wth/dotnetcoreapp:${{github.run_number}}'
+
+  deploy_prod:
+    needs: [deploy_test]
+    runs-on: ubuntu-latest
+    environment:
+      name: prod
+    steps:              
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.SECRET1 }}
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'wth12devops-prod'
           images: 'wth12devopsreg.azurecr.io/wth/dotnetcoreapp:${{github.run_number}}'
