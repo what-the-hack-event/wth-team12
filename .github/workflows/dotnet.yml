@@ -72,6 +72,8 @@ jobs:
   deploy_prod:
     needs: [deploy_test]
     runs-on: ubuntu-latest
+    environment:
+      name: test
     steps:              
       - uses: azure/login@v1
         with:
