@@ -46,7 +46,7 @@ jobs:
         run: docker push $registryName/$repositoryName:$tag
 
   deploy:
-    need: [container]
+    needs: [container]
     runs-on: ubuntu-latest
     steps:
       - uses: azure/webapps-deploy@v2
