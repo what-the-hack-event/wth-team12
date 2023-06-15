@@ -11,9 +11,6 @@ on:
         - warning
         - debug
 
-env: 
-  WEBAPPNAME: test  
-
 jobs:
     build-and-deploy:
       runs-on: ubuntu-latest
@@ -34,5 +31,5 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ vars.AZURE_RG }}
           template: ARM-Templates/container-webapp-template.json
-          parameters: webAppName=wth12devops-{{ env.WEBAPPNAME }}
+          parameters: webAppName=wth12devops-test
       
