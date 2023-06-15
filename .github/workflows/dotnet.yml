@@ -58,25 +58,25 @@ jobs:
           images: 'wth12devopsreg.azurecr.io/wth/dotnetcoreapp:${{github.run_number}}'
 
   deploy:
-      needs: [container]
-      runs-on: ubuntu-latest
-      steps:              
-        - uses: azure/login@v1
-          with:
-            creds: ${{ secrets.SECRET1 }}
-        - uses: azure/webapps-deploy@v2
-          with:
-            app-name: 'wth12devops-test'
-            images: 'wth12devopsreg.azurecr.io/wth/dotnetcoreapp:${{github.run_number}}'
+    needs: [container]
+    runs-on: ubuntu-latest
+    steps:              
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.SECRET1 }}
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'wth12devops-test'
+          images: 'wth12devopsreg.azurecr.io/wth/dotnetcoreapp:${{github.run_number}}'
 
   deploy:
-      needs: [container]
-      runs-on: ubuntu-latest
-      steps:              
-        - uses: azure/login@v1
-          with:
-            creds: ${{ secrets.SECRET1 }}
-        - uses: azure/webapps-deploy@v2
-          with:
-            app-name: 'wth12devops-prod'
-            images: 'wth12devopsreg.azurecr.io/wth/dotnetcoreapp:${{github.run_number}}'
+    needs: [container]
+    runs-on: ubuntu-latest
+    steps:              
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.SECRET1 }}
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'wth12devops-prod'
+          images: 'wth12devopsreg.azurecr.io/wth/dotnetcoreapp:${{github.run_number}}'
