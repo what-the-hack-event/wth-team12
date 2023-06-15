@@ -1,18 +1,15 @@
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      environment:
+        description: 'environment'
         required: true
-        default: 'warning'
+        default: 'dev'
         type: choice
         options:
-        - info
-        - warning
-        - debug
-
-env: 
-  targetEnv: prod
+        - dev
+        - test
+        - prod
 
 jobs:
     build-and-deploy:
@@ -34,5 +31,5 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ vars.AZURE_RG }}
           template: ARM-Templates/container-webapp-template.json
-          parameters: webAppName=wth12devops-${{ env.targetEnv }}
+          parameters: webAppName=wth12devops-${{ inputs.environment }}
       
