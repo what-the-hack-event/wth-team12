@@ -32,5 +32,3 @@ jobs:
           resourceGroupName: ${{ vars.AZURE_RG }}
           template: ARM-Templates/container-webapp-template.json
       
-        # output containerName variable from template
-      - run: echo ${{ steps.deploy.outputs.containerName }}
