@@ -31,5 +31,5 @@ jobs:
       - name: Ship it
         uses: mscoutermarsh/cowsays-action@master
         with:
-          text: 'ship ship ship!'
+          text: 'ship ship!'
           color: 'red'
