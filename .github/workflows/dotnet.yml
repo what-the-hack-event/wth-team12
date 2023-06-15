@@ -8,12 +8,12 @@ on:
     branches: 
       - 'main'
     paths:
-      - '/Application/*'
+      - 'Application/*'
   pull_request:
-    branchse: 
+    branches: 
       - 'main'
     paths:
-      - '/Application/*'
+      - 'Application/*'
 
 jobs:
   build:
