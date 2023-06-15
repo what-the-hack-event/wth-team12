@@ -50,6 +50,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'wth12devops-dev'
-        images: 'wth12devopsreg.azurecr.io/wth/dotnetcoreapp:${{github.run_number}}'
+        with:
+          app-name: 'wth12devops-dev'
+          images: 'wth12devopsreg.azurecr.io/wth/dotnetcoreapp:${{github.run_number}}'
