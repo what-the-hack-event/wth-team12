@@ -5,11 +5,13 @@ name: .NET
 
 on:
   push:
-    branch: 'main'
+    branches: 
+      - 'main'
     paths:
       - '/Application/*'
   pull_request:
-    branch: 'main'
+    branchse: 
+      - 'main'
     paths:
       - '/Application/*'
 
