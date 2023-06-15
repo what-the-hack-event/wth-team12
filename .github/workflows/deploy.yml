@@ -22,7 +22,7 @@ jobs:
         # Log into Azure
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.SECERT1 }}
+          creds: ${{ secrets.SECRET1 }}
 
         # Deploy ARM template
       - name: Run ARM deploy
