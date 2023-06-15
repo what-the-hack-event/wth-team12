@@ -60,6 +60,8 @@ jobs:
   deploy_test:
     needs: [deploy_dev]
     runs-on: ubuntu-latest
+    environment:
+      name: test
     steps:              
       - uses: azure/login@v1
         with:
@@ -73,7 +75,7 @@ jobs:
     needs: [deploy_test]
     runs-on: ubuntu-latest
     environment:
-      name: test
+      name: prod
     steps:              
       - uses: azure/login@v1
         with:
