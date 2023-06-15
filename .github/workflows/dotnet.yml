@@ -4,7 +4,11 @@
 name: .NET
 
 on:
-  paths:
+  push:
+    paths:
+      - '/Application/*'
+  pull_request:
+    paths:
       - '/Application/*'
 
 jobs:
