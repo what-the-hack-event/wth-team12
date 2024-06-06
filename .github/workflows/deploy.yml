@@ -25,4 +25,4 @@ jobs:
         scope: resourcegroup
         resourceGroupName: '${{ vars.RESOURCE_GROUP }}'
         template: './InfrastructureAsCode/main.bicep'
-        parameters: '{"environment": "test"}'
+        parameters: {"environment": "test"}
