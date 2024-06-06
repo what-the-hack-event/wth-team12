@@ -45,4 +45,5 @@ namespace RazorPagesTestSample
                     webBuilder.UseStartup<Startup>();
                 });
     }
+    
 }
