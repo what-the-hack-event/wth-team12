@@ -16,6 +16,7 @@ namespace RazorPagesTestSample.Data
         public virtual DbSet<Message> Messages { get; set; }
 
 
+
         #region snippet1
         public async virtual Task<List<Message>> GetMessagesAsync()
         {
