@@ -54,7 +54,7 @@ jobs:
 
     steps:
     - name: job2
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     - name: docker login
       run: docker login $registryName -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
     - name: Docker Build
