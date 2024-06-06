@@ -1,7 +1,7 @@
 name: Deploy to Azure
 
 on:
-    workflow_dispatch:
+  workflow_dispatch:
 
 env:
   AZURE_CREDENTIALS: ${{ secrets.SERVICE_PRINCIPLE }}
@@ -23,6 +23,7 @@ jobs:
       uses: azure/arm-deploy@v1
       with:
         scope: resourcegroup
-        resourceGroupName: '${{ vars.RESOURCE_GROUP }}'
+        resourceGroupName: ${{ vars.RESOURCE_GROUP }}
         template: './InfrastructureAsCode/main.bicep'
-        parameters: {"environment": "test"}
+        parameters: |
+          environment=${{ github.event.inputs.environment || 'test' }}
