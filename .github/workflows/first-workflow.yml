@@ -26,4 +26,4 @@ jobs:
             - name: Step 3
               uses: mscoutermarsh/cowsays-action@master
               with:
-                text: "Hello from the cow! $SOME_ENV"
+                text: "Hello from the cow! ${{ SOME_ENV }}"
