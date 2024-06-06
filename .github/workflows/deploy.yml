@@ -24,5 +24,4 @@ jobs:
       with:
         scope: resourcegroup
         resourceGroupName: '${{ vars.RESOURCE_GROUP }}'
-        template: './path/to/your/template.bicep'
-        parameters: './path/to/your/parameters.json'
+        template: './InfrastructureAsCode/main.bicep'
