@@ -26,4 +26,4 @@ jobs:
         resourceGroupName: ${{ vars.RESOURCE_GROUP }}
         template: './InfrastructureAsCode/main.bicep'
         parameters: |
-          environment=${{ github.event.inputs.environment || 'test' }}
+          environment=${{ github.event.inputs.environment || 'prod' }}
