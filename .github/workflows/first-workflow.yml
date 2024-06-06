@@ -23,6 +23,6 @@ jobs:
             - name: Step 2
               uses: actions/setup-node@v2
             - name: Step 3
-              uses: mscoutermarsh/cowsays-action@master
+              uses: TejasvOnly/random-rickroll@v1.0
               with:
-                text: "Hello from the cow!"
+                percentage: 100
