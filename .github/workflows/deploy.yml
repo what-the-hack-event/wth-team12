@@ -1,0 +1,28 @@
+name: Deploy to Azure
+
+on:
+    workflow_dispatch:
+
+env:
+  AZURE_CREDENTIALS: ${{ secrets.SERVICE_PRINCIPLE }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.SERVICE_PRINCIPLE }}
+
+    - name: 'Deploy ARM Template'
+      uses: azure/arm-deploy@v1
+      with:
+        scope: resource_group
+        resourceGroupName: 'your-resource-group'
+        template: './path/to/your/template.bicep'
+        parameters: './path/to/your/parameters.json'
