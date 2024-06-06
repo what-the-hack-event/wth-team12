@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace RazorPagesTestSample.Data
 {
     public class AppDbContext : DbContext
