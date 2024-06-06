@@ -26,13 +26,13 @@ jobs:
         
 
     - name: Install dependencies
-      run: dotnet restore /RazorPagesTestSample/RazorPagesTestSample.csproj
+      run: dotnet restore Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore /RazorPagesTestSample/RazorPagesTestSample.csproj
+      run: dotnet build --configuration Release --no-restore Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
 
     - name: Test
-      run: dotnet test --no-restore --verbosity normal /tests/RazorPagesTestSample.Tests.csproj
+      run: dotnet test --no-restore --verbosity normal Application/tests/RazorPagesTestSample.Tests/RazorPagesTestSample.Tests.csproj
 
     - name: Publish
-      run: dotnet publish --configuration Release --no-build src/RazorPagesTestSample.csproj
+      run: dotnet publish --configuration Release --no-build Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
