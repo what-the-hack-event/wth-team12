@@ -14,6 +14,7 @@ namespace RazorPagesTestSample.Tests.UnitTests
         {
             using (var db = new AppDbContext(Utilities.TestDbContextOptions()))
             {
+                
                 // Arrange
                 var expectedMessages = AppDbContext.GetSeedingMessages();
                 await db.AddRangeAsync(expectedMessages);
