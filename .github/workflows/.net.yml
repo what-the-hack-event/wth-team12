@@ -1,5 +1,11 @@
 name: .NET Core CI
 
+env:
+  registryName: 'Microsoft.ContainerRegistry/registries@2020-11-01-preview.azurecr.io'
+  repositoryName: 'wth/dotnetcoreapp'
+  dockerFolderPath: 'Application/src/RazorPagesTestSample'
+  tag: '${{github.run_number}}'
+
 on:
   push:
     paths:
@@ -43,3 +49,15 @@ jobs:
         script: |
           const issueTitle = "Workflow failed: " + context.workflow;
           const issueBody
+  job2:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: job2
+    - uses: actions/checkout@v2
+    - name: docker login
+      run: docker login $registryName -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
+    - name: Docker Build
+      run: docker build -t $registryName/$repositoryName:$tag --build-arg build_version=$tag $dockerFolderPath
+    - name: Docker Push
+      run: docker push $registryName/$repositoryName:$tag
