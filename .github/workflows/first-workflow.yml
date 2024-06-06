@@ -20,6 +20,6 @@ jobs:
             - name: Step 2
               uses: actions/setup-node@v2
             - name: Step 3
-              uses: peter-evans/cowsay-action@v1
+              uses: mscoutermarsh/cowsay-action@v1
               with:
                 text: "Hello from the cow!"
