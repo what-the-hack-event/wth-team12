@@ -9,9 +9,10 @@ namespace RazorPagesTestSample
 {
     public class Startup
     {
+        
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
             services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMemoryDb"));
 
             services.AddRazorPages();

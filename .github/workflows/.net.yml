@@ -38,8 +38,8 @@ jobs:
       run: dotnet publish --configuration Release --no-build Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
     - name: Create Issue on Failure
       if: failure()
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const issueTitle = "Workflow failed: " + context.workflow;
-            const issueBody
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const issueTitle = "Workflow failed: " + context.workflow;
+          const issueBody
