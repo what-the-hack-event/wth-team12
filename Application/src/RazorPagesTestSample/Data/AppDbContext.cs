@@ -17,6 +17,7 @@ namespace RazorPagesTestSample.Data
 
 
 
+
         #region snippet1
         public async virtual Task<List<Message>> GetMessagesAsync()
         {

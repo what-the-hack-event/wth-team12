@@ -72,5 +72,6 @@ jobs:
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:
+        creds: ${{secrets.SERVICE_PRINCIPLE}}
         app-name: wkz2ikoaul6hkwthreg-dev
         images: ${{env.registryName}}/wth/dotnetcoreapp:15
